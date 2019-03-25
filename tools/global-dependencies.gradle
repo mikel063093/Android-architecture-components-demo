@@ -1,0 +1,53 @@
+// All project dependencies should have their respective version number listed here
+ext {
+    // Project
+    minSdkVersion = 21
+    compileSdkVersion = 28
+    targetSdkVersion = 28
+    buildToolsVersion = '28.0.3'
+    gradleBuildToolsVersion = '3.3.2'
+
+    // Kotlin
+    kotlin_version = '1.3.0'
+
+    // Dagger
+    daggerVersion = '2.19'
+    daggerAndroidVersion = '2.19'
+
+    // RxJava
+    rxAndroidVersion = "2.0.2"
+    rxJavaVersion = "2.1.3"
+    rxrelay2 = "2.1.0"
+    rxKotlin = "2.3.0"
+
+    // Support Libraries
+    supportVersion = '1.0.0'
+    multidexVersion = '2.0.0'
+    constraintLayoutVersion = '1.1.3'
+    ktxVersion = '1.0.0-beta01'
+    navigationVersion = '1.0.0-rc02'
+
+    // Networking
+    retrofitVersion = "2.4.0"
+    gsonVersion = "2.8.1"
+    okhttpVersion = "3.5.0"
+    okioVersion = "1.11.0"
+
+    // Architecture components
+    archVersion = '2.0.0'
+    roomVersion = '2.0.0-beta01'
+    pagingVersion = '2.0.0'
+
+    // Test dependencies
+    assertJVersion = "3.8.0"
+    jUnitVersion = "4.12"
+    mockitoVersion = "2.18.3"
+    mockwebserverVersion = "2.7.0"
+    roboElectricVersion = "3.6.1"
+    testRunnerVersion = '1.1.0-alpha4'
+    espressoVersion = '3.1.0-alpha4'
+    mockitoKotlinVersion = "1.6.0"
+    mockitoKotlin2Version = "2.0.0-RC1"
+    testCoreVersion = "1.0.0"
+    testArchCoreVersion = "2.0.0"
+}
