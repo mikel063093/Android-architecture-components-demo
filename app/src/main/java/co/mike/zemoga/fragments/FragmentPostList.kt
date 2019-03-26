@@ -114,7 +114,7 @@ class FragmentPostList : BaseFragment(), PostAdapter.OnItemClickListener {
     private fun handleActions(event: PostActions) {
         when (event) {
             is PostActions.ShowPosts -> showPosts(event.posts)
-            is PostActions.ShowFavortePosts -> showFavortePosts(event.posts)
+            is PostActions.ShowFavoritePosts -> showFavortePosts(event.posts)
             is PostActions.ShowLoading -> showLoading(event.loading)
             is PostActions.ShowError -> showError(event.error)
         }

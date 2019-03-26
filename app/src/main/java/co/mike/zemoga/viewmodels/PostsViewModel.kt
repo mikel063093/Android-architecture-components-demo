@@ -26,7 +26,6 @@ class PostsViewModel @Inject constructor(private val service: ZemogaService,
         loadUsers()
     }
 
-
     fun loadPosts() {
         disposable.add(service.getPosts()
                 .applySchedulers()
@@ -93,7 +92,7 @@ class PostsViewModel @Inject constructor(private val service: ZemogaService,
 
 
     private fun handleFavoritePosts(posts: List<Post>) {
-        actions.onNext(PostActions.ShowFavortePosts(posts))
+        actions.onNext(PostActions.ShowFavoritePosts(posts))
     }
 
     private fun onError(error: Throwable?) {

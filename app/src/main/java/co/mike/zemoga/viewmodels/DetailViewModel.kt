@@ -8,6 +8,7 @@ import co.mike.zemoga.database.CommentDao
 import co.mike.zemoga.database.PostDao
 import co.mike.zemoga.database.UserDao
 import co.mike.zemoga.extencion.applySchedulers
+import co.mike.zemoga.models.Comment
 import co.mike.zemoga.models.Post
 import co.mike.zemoga.models.User
 import co.mike.zemoga.services.ZemogaService
@@ -43,11 +44,26 @@ class DetailViewModel @Inject constructor(private val service: ZemogaService,
     }
 
     private fun handlePost(post: Post) {
+        this.isFavorite.set(post.favorite)
         title.set(post.title)
         content.set(post.body)
         isFavorite.set(post.favorite)
         getUser(post.userId)
-        this.isFavorite.set(post.favorite)
+        getComments(post.id)
+    }
+
+    private fun getComments(postId: String) {
+        disposable.add(service.getComments(postId)
+                .applySchedulers()
+                .doOnSubscribe { showLoading(true) }
+                .doOnSuccess { showLoading(false) }
+                .doOnError { showLoading(false) }
+                .subscribe(this::handleComments, this::onError)
+        )
+    }
+
+    private fun handleComments(comments: List<Comment>) {
+        actions.onNext(PostActions.ShowComments(comments))
     }
 
     private fun getUser(userId: String) {
