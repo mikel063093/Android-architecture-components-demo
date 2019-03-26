@@ -114,5 +114,11 @@ class PostsViewModel @Inject constructor(private val service: ZemogaService,
         initViewModel()
     }
 
+    fun onCLickSync() {
+        disposable.add(deleteAllPosts().applySchedulers().subscribe())
+        actions.onNext(PostActions.ClickDeleteAll)
+        actions.onNext(PostActions.ClickSync)
+    }
+
     fun getActions(): Observable<PostActions> = actions.hide()
 }

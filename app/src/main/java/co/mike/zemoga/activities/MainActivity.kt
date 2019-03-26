@@ -45,7 +45,6 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
         lifecycle.addObserver(viewModel)
         setupViewPager()
         bindToViewModel()
-
     }
 
     private fun bindToViewModel() {
@@ -55,6 +54,7 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
     private fun handleActions(event: PostActions) {
         when (event) {
             is PostActions.ClickDeleteAll -> sharedViewModel.clearItems(true)
+            is PostActions.ClickSync -> sharedViewModel.reload(true)
         }
     }
 

@@ -1,5 +1,6 @@
 package co.mike.zemoga.viewmodels
 
+import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import co.mike.zemoga.actions.PostActions
 import co.mike.zemoga.base.ViewModel
@@ -30,6 +31,7 @@ class DetailViewModel @Inject constructor(private val service: ZemogaService,
     val userPhone = ObservableField("")
     val userEmail = ObservableField("")
     val userWebsite = ObservableField("")
+    val isFavorite = ObservableBoolean()
 
     fun loadDetail(postId: Int) {
         this.postId = postId
@@ -43,7 +45,9 @@ class DetailViewModel @Inject constructor(private val service: ZemogaService,
     private fun handlePost(post: Post) {
         title.set(post.title)
         content.set(post.body)
+        isFavorite.set(post.favorite)
         getUser(post.userId)
+        this.isFavorite.set(post.favorite)
     }
 
     private fun getUser(userId: String) {
@@ -68,7 +72,8 @@ class DetailViewModel @Inject constructor(private val service: ZemogaService,
 
     fun onClickFavorite() {
         postId?.let {
-            updatePost(it, isFavorite = true)
+            this.isFavorite.set(this.isFavorite.get().not())
+            updatePost(it, isFavorite = this.isFavorite.get())
         }
     }
 

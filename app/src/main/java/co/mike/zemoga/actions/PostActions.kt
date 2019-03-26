@@ -9,4 +9,5 @@ sealed class PostActions {
     class ShowFavortePosts(val posts: List<Post>) : PostActions()
     object ClearView : PostActions()
     object ClickDeleteAll : PostActions()
+    object ClickSync : PostActions()
 }

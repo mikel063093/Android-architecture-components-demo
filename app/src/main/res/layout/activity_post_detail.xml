@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="co.mike.zemoga.R" />
+
         <variable
             name="viewModel"
             type="co.mike.zemoga.viewmodels.DetailViewModel" />
@@ -32,7 +34,7 @@
                     android:layout_marginEnd="@dimen/fab_margin"
                     android:contentDescription="@null"
                     android:onClick="@{ () -> viewModel.onClickFavorite() }"
-                    android:src="@drawable/ic_star" />
+                    android:src="@{ viewModel.isFavorite ? @drawable/ic_star : @drawable/ic_star_border }" />
 
             </androidx.appcompat.widget.Toolbar>
 

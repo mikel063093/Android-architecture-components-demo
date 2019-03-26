@@ -52,9 +52,17 @@ class FragmentPostList : BaseFragment(), PostAdapter.OnItemClickListener {
 
     private val observerClearAdapter = Observer<Boolean> { clearItems(it!!) }
 
+    private val observerReload = Observer<Boolean> { sync(it!!) }
+
     private fun clearItems(clear: Boolean) {
         if (clear) {
             adapter?.loadPosts(arrayListOf())
+        }
+    }
+
+    private fun sync(load: Boolean) {
+        if (load) {
+            viewModel.reload()
         }
     }
 
@@ -75,6 +83,8 @@ class FragmentPostList : BaseFragment(), PostAdapter.OnItemClickListener {
         lifecycle.addObserver(viewModel)
         sharedViewModel = ViewModelProviders.of(requireActivity()).get(SharedViewModel::class.java)
         sharedViewModel.clearItems().observe(owner, observerClearAdapter)
+        sharedViewModel.reload().observe(owner, observerReload)
+        bindToViewModel()
     }
 
     override fun onAttach(context: Context?) {
@@ -85,7 +95,6 @@ class FragmentPostList : BaseFragment(), PostAdapter.OnItemClickListener {
     override fun onResume() {
         super.onResume()
         initViewModel()
-        bindToViewModel()
     }
 
     private fun initViewModel() {
