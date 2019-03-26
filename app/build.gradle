@@ -69,5 +69,7 @@ dependencies {
     // Architecture components
     implementation "androidx.room:room-runtime:$rootProject.ext.roomVersion"
     implementation "androidx.room:room-rxjava2:$rootProject.ext.roomVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.archVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime:$rootProject.ext.archVersion"
     kapt "androidx.room:room-compiler:$rootProject.ext.roomVersion"
 }

@@ -1,12 +1,22 @@
 package co.mike.zemoga.services
 
+import co.mike.zemoga.models.Comment
 import co.mike.zemoga.models.Post
-import com.google.gson.JsonObject
-import io.reactivex.Observable
+import co.mike.zemoga.models.User
 import io.reactivex.Single
 import retrofit2.http.GET
 
+const val POSTS = "posts"
+const val USERS = "users"
+const val COMMENTS = "comments"
+
 interface ZemogaService {
-    @GET("posts")
-    fun fetchPosts(): Single<List<Post>>
+    @GET(POSTS)
+    fun getPosts(): Single<List<Post>>
+
+    @GET(USERS)
+    fun getUsers(): Single<List<User>>
+
+    @GET(COMMENTS)
+    fun getComments(): Single<List<Comment>>
 }
