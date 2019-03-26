@@ -24,7 +24,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary">
+                android:background="?attr/colorPrimary"
+                app:title="@string/title_main_activity">
 
                 <ImageView
                     android:id="@+id/favoriteButton"
@@ -72,6 +73,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             android:onClick="@{ () -> viewModel.onClickDelete() }"
+            app:backgroundTint="@color/red"
             app:srcCompat="@drawable/ic_delete" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

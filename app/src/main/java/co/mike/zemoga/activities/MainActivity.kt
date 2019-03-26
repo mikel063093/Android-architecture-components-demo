@@ -62,7 +62,7 @@ class MainActivity : BaseActivity(), HasSupportFragmentInjector {
         binding.viewPager.adapter = PagerAdapter(supportFragmentManager, buildFragments())
         binding.tabLayout.setupWithViewPager(binding.viewPager)
         binding.tabLayout.getTabAt(0)?.text = "ALL"
-        binding.tabLayout.getTabAt(1)?.text = "FAVORITE"
+        binding.tabLayout.getTabAt(1)?.text = "FAVORITES"
     }
 
     private fun buildFragments(): Array<BaseFragment> {

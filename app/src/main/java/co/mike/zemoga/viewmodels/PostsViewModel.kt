@@ -19,8 +19,6 @@ class PostsViewModel @Inject constructor(private val service: ZemogaService,
 
     private val actions by lazy { PublishSubject.create<PostActions>() }
 
-    private lateinit var sharedViewModel: SharedViewModel
-
     private fun initViewModel() {
         loadPosts()
         loadUsers()

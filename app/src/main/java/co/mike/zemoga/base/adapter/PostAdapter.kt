@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
+import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -43,8 +44,7 @@ class PostAdapter(private val context: Context, private val data: ArrayList<Post
                     itemView.imageview_status.setImageResource(R.drawable.ic_star_gold)
                 } else {
                     itemView.imageview_status.setImageResource(R.drawable.ic_unread)
-                    itemView.imageview_status.visibility = if (post.read) GONE else VISIBLE
-
+                    itemView.imageview_status.visibility = if (post.read) INVISIBLE else VISIBLE
                 }
                 itemView.setOnClickListener {
                     onItemClickListener?.onItemClicked(itemPost)

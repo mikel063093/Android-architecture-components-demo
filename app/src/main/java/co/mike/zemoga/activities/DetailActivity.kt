@@ -39,6 +39,11 @@ class DetailActivity : BaseActivity() {
         adapter = CommentsAdapter(baseContext, ArrayList())
         bindToViewModel()
         setupRecyclerView()
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun bindToViewModel() {

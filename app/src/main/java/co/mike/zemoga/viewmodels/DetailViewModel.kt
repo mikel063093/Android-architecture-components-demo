@@ -4,7 +4,6 @@ import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import co.mike.zemoga.actions.PostActions
 import co.mike.zemoga.base.ViewModel
-import co.mike.zemoga.database.CommentDao
 import co.mike.zemoga.database.PostDao
 import co.mike.zemoga.database.UserDao
 import co.mike.zemoga.extencion.applySchedulers
@@ -19,8 +18,7 @@ import javax.inject.Inject
 
 class DetailViewModel @Inject constructor(private val service: ZemogaService,
                                           private val postDao: PostDao,
-                                          private val userDao: UserDao,
-                                          private val commentDao: CommentDao) : ViewModel() {
+                                          private val userDao: UserDao) : ViewModel() {
 
     private val actions by lazy { PublishSubject.create<PostActions>() }
 

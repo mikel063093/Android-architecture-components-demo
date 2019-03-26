@@ -24,7 +24,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary">
+                android:background="?attr/colorPrimary"
+                app:title="@string/title_activity_post_detail">
 
                 <ImageView
                     android:id="@+id/favoriteButton"

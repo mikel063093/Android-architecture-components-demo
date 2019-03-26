@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="co.mike.zemoga">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".MainApplication"
@@ -12,13 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activities.MainActivity">
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/title_main_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DetailActivity" />
+        <activity
+            android:name=".activities.DetailActivity"
+            android:label="@string/title_activity_post_detail" />
     </application>
 </manifest>

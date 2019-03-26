@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
 import co.mike.zemoga.R
 import co.mike.zemoga.actions.PostActions
 import co.mike.zemoga.activities.DetailActivity
@@ -143,8 +144,13 @@ class FragmentPostList : BaseFragment(), PostAdapter.OnItemClickListener {
     }
 
     private fun setupRecyclerView() {
+        val layoutManager = androidx.recyclerview.widget.LinearLayoutManager(requireContext())
         val recycler = binding?.recyclerView
         recycler?.adapter = adapter
-        recycler?.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(requireContext())
+        recycler?.layoutManager = layoutManager
+        val dividerItemDecoration = DividerItemDecoration(requireContext(),
+                layoutManager.orientation)
+        recycler?.addItemDecoration(dividerItemDecoration)
+
     }
 }
