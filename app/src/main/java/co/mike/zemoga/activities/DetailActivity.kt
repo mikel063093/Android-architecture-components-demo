@@ -44,6 +44,9 @@ class DetailActivity : BaseActivity() {
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+        this.postId?.let {
+            viewModel.loadDetail(it.toInt())
+        }
     }
 
     private fun bindToViewModel() {
@@ -60,13 +63,6 @@ class DetailActivity : BaseActivity() {
 
     private fun showComments(comments: List<Comment>) {
         adapter?.loadItems(comments)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        this.postId?.let {
-            viewModel.loadDetail(it.toInt())
-        }
     }
 
     private fun setupRecyclerView() {

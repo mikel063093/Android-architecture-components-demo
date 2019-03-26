@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import co.mike.zemoga.models.Post
 import io.reactivex.Flowable
+import io.reactivex.Single
 
 @Dao
 interface PostDao {
@@ -16,7 +17,7 @@ interface PostDao {
     fun getFavoritePost(): Flowable<List<Post>>
 
     @Query("SELECT * FROM posts WHERE id = :id")
-    fun getPost(id: Int): Flowable<Post>
+    fun getPost(id: Int): Single<Post>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     @JvmSuppressWildcards

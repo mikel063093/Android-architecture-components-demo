@@ -65,7 +65,9 @@ class DetailViewModel @Inject constructor(private val service: ZemogaService,
     }
 
     private fun getUser(userId: String) {
-        disposable.add(userDao.getUser(userId).applySchedulers().subscribe(this::handleUser, this::onError))
+        disposable.add(userDao.getUser(userId)
+                .applySchedulers()
+                .subscribe(this::handleUser, this::onError))
     }
 
     private fun handleUser(user: User) {

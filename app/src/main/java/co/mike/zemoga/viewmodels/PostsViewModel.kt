@@ -19,6 +19,10 @@ class PostsViewModel @Inject constructor(private val service: ZemogaService,
 
     private val actions by lazy { PublishSubject.create<PostActions>() }
 
+    init {
+        loadUsers()
+    }
+
     private fun initViewModel() {
         loadPosts()
         loadUsers()
